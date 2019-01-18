@@ -1,0 +1,11 @@
+[{
+  "id": 1,
+  "name": "Bitcoin",
+  "symbol": "BTC",
+  "slug": "bitcoin"
+},{
+  "id": 2,
+  "name": "Litecoin",
+  "symbol": "LTC",
+  "slug": "litecoin"
+}]
