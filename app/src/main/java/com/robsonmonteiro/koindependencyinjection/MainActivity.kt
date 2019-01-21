@@ -8,8 +8,8 @@ import com.robsonmonteiro.koindependencyinjection.presentation.CurrenciesAdapter
 import com.robsonmonteiro.koindependencyinjection.presentation.CurrenciesViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
+import org.koin.android.scope.ext.android.bindScope
 import org.koin.android.scope.ext.android.getOrCreateScope
-import org.koin.android.scope.ext.android.getScope
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        getOrCreateScope("browse")
+        bindScope(getOrCreateScope("browse"))
 
         setupCurrenciesRecycler()
 
@@ -43,10 +43,5 @@ class MainActivity : AppCompatActivity() {
     fun setupCurrenciesRecycler() {
         recycler_currencies.layoutManager = LinearLayoutManager(this)
         recycler_currencies.adapter = currenciesAdapter
-    }
-
-    override fun onDestroy() {
-        getScope("browse").close()
-        super.onDestroy()
     }
 }

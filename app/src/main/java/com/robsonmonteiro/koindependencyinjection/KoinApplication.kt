@@ -12,7 +12,7 @@ class KoinApplication : Application() {
             Timber.plant(Timber.DebugTree())
         }
 
-        startKoin(this, listOf(applicationModule), loadProperties = true, logger = KoinLogger())
+        startKoin(this, listOf(applicationModule, browseModule), loadProperties = true, logger = KoinLogger())
     }
 
 }
